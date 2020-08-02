@@ -17,6 +17,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -88,7 +89,13 @@ const useStyles = makeStyles(theme => ({
   titleDiv: {
     width: '100%',
     textAlign: 'center',
-    marginRight: theme.spacing(10)
+    marginRight: '10%',
+  },
+  footer: {
+    width: '100%',
+    textAlign: 'center',
+    position: 'fixed',
+    bottom: 0
   }
 }))
 
@@ -124,10 +131,10 @@ const Layout = ({ children }) => {
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon fontSize='large' />
           </IconButton>
           <div className={classes.titleDiv}>
-          <Typography variant="h2" noWrap>
+          <Typography variant="h2" noWrap style={{fontFamily: 'UnifrakturMaguntia, cursive'}}>
             Total Misfits Riding Club
           </Typography>
           </div>
@@ -149,32 +156,26 @@ const Layout = ({ children }) => {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {/* TODO: change the below to an object with icons that match */}
+          {['Home', 'Login', 'Photos', 'About Us', 'Contact Us'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <LockOpenIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}>{children}</main>
-        <footer>
+    </div>
+    {/* TODO: Figure out where the hell the footer went??? */}
+        <footer className={classes.footer}>
           © {new Date().getFullYear()}, Total Misfits
           {` `}
         </footer>
-    </div>
     </div>
   )
 }
