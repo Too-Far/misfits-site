@@ -11,6 +11,8 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+        downloadLocalImages: true,
+        buldMarkdownNodes: true,
       },
     },
     `gatsby-transformer-sharp`,
@@ -27,6 +29,12 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-source-graphcms',
+      options: {
+        endpoint: '//https:api-eu-central-1.graphcms.com/v2/ckddeejqagy0v01xwefh16nr0/master',
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
