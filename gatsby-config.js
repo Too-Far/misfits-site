@@ -30,11 +30,14 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-graphcms',
+      resolve: "gatsby-source-graphql",
       options: {
-        endpoint: '//https:api-eu-central-1.graphcms.com/v2/ckddeejqagy0v01xwefh16nr0/master',
-      }
-    }
+        typeName: "TMRC",
+        fieldName: "tmrc",
+        url:
+          "https://api-eu-central-1.graphcms.com/v2/ckddeejqagy0v01xwefh16nr0/master",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
