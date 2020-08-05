@@ -13,6 +13,7 @@ export const StyledWrap = styled.div`
         background-repeat: no-repeat;
         background-attachment: fixed;
         position: relative;
+        margin-bottom: 15px;
 `;
 
 export const StyledInnerWrap = styled.div`
@@ -28,9 +29,9 @@ export const StyledInnerWrap = styled.div`
 `;
 
 export const StyledImg = styled.img`
-        border-radius: 40%;
-        padding-top: 40%;
-        margin-bottom: 0;
-        padding-bottom: 0;
+        border-radius: 50px;
+        margin-top: 3.70em;
+        height: 340px;
+        box-shadow: 10px 10px 104px -9px rgba(0,0,0,0.75);
 
 `

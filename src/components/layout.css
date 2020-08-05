@@ -10,6 +10,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+main {
+  background-color: rgb(161, 52, 49, 1);
+}
 article,
 aside,
 details,
@@ -190,6 +193,7 @@ html {
   font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
   overflow-y: scroll;
+
 }
 * {
   box-sizing: inherit;
