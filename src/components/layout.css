@@ -4,6 +4,8 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   overflow: hidden;
+  background-color: rgb(161, 52, 49, 1);
+
 }
 body {
   margin: 0;

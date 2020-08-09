@@ -1,5 +1,5 @@
 export const Colors = {
-    mainRed: 'rgba(161, 52, 49, 0.9)',
+    mainRed: 'rgba(161, 52, 49, .9)',
     transparentRed: 'rgba(161, 52, 49, 0.4)'
 }
 
