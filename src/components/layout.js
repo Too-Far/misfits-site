@@ -17,14 +17,14 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
+import HomeIcon from '@material-ui/icons/Home';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import InfoIcon from '@material-ui/icons/Info';
 import clsx from 'clsx'
 import "./layout.css"
+import zIndex from "@material-ui/core/styles/zIndex";
 
 const drawerWidth = 240
 const useStyles = makeStyles(theme => ({
@@ -95,7 +95,8 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     textAlign: 'center',
     position: 'fixed',
-    bottom: 0
+    bottom: 0,
+    zIndex: 0
   }
 }))
 
@@ -112,6 +113,14 @@ const Layout = ({ children }) => {
     setOpen(false);
   };
 
+  const navItems = [
+    ['Home','/',<HomeIcon/>],
+    ['About','AboutUs',<InfoIcon/>]
+  ]
+
+  const handleClick = ()=>{
+    alert('I Got Clicked Sucka')
+  }
     
   return (
     <div>
@@ -156,13 +165,12 @@ const Layout = ({ children }) => {
         </div>
         <Divider />
         <List>
-        {/* TODO: change the below to an object with icons that match */}
-          {['Home', 'Login', 'Photos', 'About Us', 'Contact Us'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <LockOpenIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+        {navItems.map((obj)=>(
+            <ListItem button component='a' href={obj[1]} key={obj[0]} onclick={handleClick}>
+              <ListItemIcon>{obj[2]}</ListItemIcon>
+              <ListItemText primary={obj[0]}/>
             </ListItem>
-          ))}
+        ))}
         </List>
         <Divider />
       </Drawer>
@@ -171,7 +179,6 @@ const Layout = ({ children }) => {
           [classes.contentShift]: open,
         })}>{children}</main>
     </div>
-    {/* TODO: Figure out where the hell the footer went??? */}
         <footer className={classes.footer}>
           © {new Date().getFullYear()}, Total Misfits
           {` `}

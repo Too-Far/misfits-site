@@ -22,7 +22,7 @@ export const StyledInnerWrap = styled.div`
         top: 0;
         width: 100%;
         height: 100%;
-        background-color: ${transparentRed};
+        ${'' /* background-color: ${transparentRed}; */}
         zIndex: 4;
         justify-content: center;
         align-content: center;
